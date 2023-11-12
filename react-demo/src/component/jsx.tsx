@@ -1,5 +1,22 @@
 import { Fragment, ReactElement, useState } from "react"
-
+import './app.scss'
+export function JsxContainer() {
+  const [count, setCount] = useState(10)
+  setInterval(() => {
+    setCount(count + 1)
+  }, 100000)
+  return (
+    <div className='wrap'>
+      {/* 组件传值 */}
+      <ComponentContainer age={19} >
+        <div>传入内部 children {count}</div>
+      </ComponentContainer>
+      <ChoiceContainer />
+      <ListContainer />
+      <EventContainer />
+    </div>
+  )
+}
 // 函数传值
 export function ComponentContainer({ age = 19, name, children }: { children: any, age: number, name?: string }) {
   const LittleComponent = <div>123</div>

@@ -1,22 +1,30 @@
 import { useState } from 'react'
-import { ChoiceContainer, ComponentContainer, ListContainer, EventContainer } from './component/index'
-import './app.scss'
+import { JsxContainer } from './component/jsx'
+import { StateContainer } from './component/state'
+import { ReducerContainer } from './component/Reducer'
+import { ContextContainer } from './component/Context'
+import { ReducerContextContainer } from './component/ReducerContext'
 function App() {
-  const [count, setCount] = useState(10)
-  setInterval(() => {
-    setCount(count + 1)
-  }, 100000)
+  const [state, setState] = useState(3)
   return (
-    <div className='wrap'>
-      {/* 组件传值 */}
-      <ComponentContainer age={19} >
-        <div>传入内部 children {count}</div>
-      </ComponentContainer>
-      <ChoiceContainer />
-      <ListContainer />
-      <EventContainer />
-    </div>
+    <>
+      <div style={{
+        display: 'flex',
+        gap: '5px'
+      }}>
+        <button onClick={() => setState(1)}>jsx</button>
+        <button onClick={() => setState(2)}>useState</button>
+        <button onClick={() => setState(3)}>useReducer</button>
+        <button onClick={() => setState(4)}>ContextContainer</button>
+        <button onClick={() => setState(5)}>ReducerContextContainer</button>
+      </div>
+      {state === 1 && <JsxContainer />}
+      {state === 2 && <StateContainer />}
+      {state === 3 && <ReducerContainer />}
+      {state === 4 && <ContextContainer />}
+      {state === 5 && <ReducerContextContainer />}
+    </>
+
   )
 }
-
 export default App
