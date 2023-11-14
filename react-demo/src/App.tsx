@@ -4,8 +4,9 @@ import { StateContainer } from './component/state'
 import { ReducerContainer } from './component/Reducer'
 import { ContextContainer } from './component/Context'
 import { ReducerContextContainer } from './component/ReducerContext'
+import { RefContainer } from './component/ref'
 function App() {
-  const [state, setState] = useState(3)
+  const [state, setState] = useState(6)
   return (
     <>
       <div style={{
@@ -17,12 +18,14 @@ function App() {
         <button onClick={() => setState(3)}>useReducer</button>
         <button onClick={() => setState(4)}>ContextContainer</button>
         <button onClick={() => setState(5)}>ReducerContextContainer</button>
+        <button onClick={() => setState(6)}>RefContainer</button>
       </div>
       {state === 1 && <JsxContainer />}
       {state === 2 && <StateContainer />}
       {state === 3 && <ReducerContainer />}
       {state === 4 && <ContextContainer />}
       {state === 5 && <ReducerContextContainer />}
+      {state === 6 && <RefContainer />}
     </>
 
   )
