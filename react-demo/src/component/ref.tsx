@@ -13,6 +13,8 @@ function RefTimerContainer() {
   const timer = useRef<number>(0);
   const [time, setTime] = useState(0)
   const [state, setState] = useState(false)
+  timer.current = 111;
+  console.log(timer)
   function open() {
     setTime(0)
     setState(true)
@@ -49,6 +51,9 @@ function RefDOMContainer() {
     <h1>Ref 获取 DOM 节点</h1>
     {value}
     <RefDOMItem ref={ChildrenContainer} />
+    <RefDOMItem ref={(n) => {
+      console.log(n)
+    }} />
   </div>
 }
 
@@ -68,7 +73,6 @@ const RefCallBack = () => {
     <h1>Ref 通过 callback 获取 DOM</h1>
     <div ref={(node) => {
       setValue(node?.offsetHeight || 0)
-    }}>{ value }</div>
+    }}>{value}</div>
   </div>
 }
-// 
