@@ -6,8 +6,9 @@ import { ContextContainer } from './component/Context'
 import { ReducerContextContainer } from './component/ReducerContext'
 import { RefContainer } from './component/ref'
 import { ReactDOMContainer } from './component/reactDOM'
+import { EffectContainer } from './component/effect'
 function App() {
-  const [state, setState] = useState(7)
+  const [state, setState] = useState(8)
   return (
     <>
       <div style={{
@@ -21,6 +22,7 @@ function App() {
         <button onClick={() => setState(5)}>ReducerContextContainer</button>
         <button onClick={() => setState(6)}>RefContainer</button>
         <button onClick={() => setState(7)}>ReactDOMContainer</button>
+        <button onClick={() => setState(8)}>EffectContainer</button>
       </div>
       {state === 1 && <JsxContainer />}
       {state === 2 && <StateContainer />}
@@ -29,6 +31,7 @@ function App() {
       {state === 5 && <ReducerContextContainer />}
       {state === 6 && <RefContainer />}
       {state === 7 && <ReactDOMContainer />}
+      {state === 8 && <EffectContainer />}
     </>
 
   )
