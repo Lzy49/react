@@ -9,8 +9,9 @@ import { ReactDOMContainer } from './component/reactDOM'
 import { EffectContainer } from './component/effect'
 import { MemoContainer } from './component/Memo'
 import { SyncExternalStoreContainer } from './component/SyncExternalStore'
+import { DiyHooks } from './component/DiyHooks'
 function App() {
-  const [state, setState] = useState(10)
+  const [state, setState] = useState(11)
   return (
     <>
       <div style={{
@@ -27,6 +28,7 @@ function App() {
         <button onClick={() => setState(8)}>EffectContainer</button>
         <button onClick={() => setState(9)}>MemoContainer</button>
         <button onClick={() => setState(10)}>SyncExternalStoreContainer</button>
+        <button onClick={() => setState(11)}>DiyHooks</button>
       </div>
       {state === 1 && <JsxContainer />}
       {state === 2 && <StateContainer />}
@@ -38,6 +40,7 @@ function App() {
       {state === 8 && <EffectContainer />}
       {state === 9 && <MemoContainer />}
       {state === 10 && <SyncExternalStoreContainer />}
+      {state === 11 && <DiyHooks />}
     </>
 
   )
