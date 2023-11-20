@@ -10,6 +10,8 @@ import { EffectContainer } from './component/effect'
 import { MemoContainer } from './component/Memo'
 import { SyncExternalStoreContainer } from './component/SyncExternalStore'
 import { DiyHooks } from './component/DiyHooks'
+import { UseCallbackContainer } from './component/UseCallback'
+import { HooksContainer } from './component/hooks'
 function App() {
   const [state, setState] = useState(11)
   return (
@@ -29,6 +31,7 @@ function App() {
         <button onClick={() => setState(9)}>MemoContainer</button>
         <button onClick={() => setState(10)}>SyncExternalStoreContainer</button>
         <button onClick={() => setState(11)}>DiyHooks</button>
+        <button onClick={() => setState(12)}>UseCallback</button>
       </div>
       {state === 1 && <JsxContainer />}
       {state === 2 && <StateContainer />}
@@ -41,6 +44,12 @@ function App() {
       {state === 9 && <MemoContainer />}
       {state === 10 && <SyncExternalStoreContainer />}
       {state === 11 && <DiyHooks />}
+      {state === 12 && <UseCallbackContainer />}
+
+      <div>
+        <h1>hooks </h1>
+        <HooksContainer />
+      </div>
     </>
 
   )
