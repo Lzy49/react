@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { UseCallbackContainer } from "./UseCallback"
+import { UseEffectContainer } from "./UseEffect"
 const list = [
-  { name: 'useCallback', component: UseCallbackContainer }
+  { name: 'useCallback', component: <UseCallbackContainer key={'useCallback'} />},
+  { name: 'UseEffectContainer', component: <UseEffectContainer  key={'UseEffectContainer'}/>}
 ]
 export function Optimization() {
   const [on, setOn] = useState<string>(list[0].name)
@@ -10,7 +12,7 @@ export function Optimization() {
     if (component) {
       return component.component
     } else {
-      return () => null
+      return null
     }
   }
   return <div style={{
@@ -25,7 +27,7 @@ export function Optimization() {
     </div>
     <div className="contest">
       {
-        getComponent()()
+        getComponent()
       }
     </div>
   </div>
