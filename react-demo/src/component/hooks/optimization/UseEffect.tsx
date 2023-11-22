@@ -6,7 +6,7 @@ export function UseEffectContainer() {
     <UseEffectExample2 />
     <UseEffectExample3 />
     <UseEffectExample4 />
-    <EffectChildren />
+    <UseEffectExample5 />
   </div>
 }
 // 使用 useCallback 和 useState
@@ -58,7 +58,7 @@ export function UseEffectExample2() {
   </div>
 }
 
-// useEffect 调用时机
+// useEffect 调用时机  已经 解决
 function UseEffectExample3() {
   const [heightEffect, setHeightEffect] = useState(0);
   const [heightLayoutEffect, setHeightLayoutEffect] = useState(0);
@@ -114,7 +114,7 @@ function UseEffectExample4() {
 }
 
 // effect 子组件更新 , effect 表现
-function EffectChildren() {
+function UseEffectExample5() {
   const [id, setId] = useState('1')
   return <div>
     <h1> 子组件更新, effect 的 return 会如何表现</h1>
