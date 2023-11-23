@@ -1,11 +1,15 @@
 import { Optimization } from './optimization'
 import { DevContainer } from './dev'
 import { StateContainer } from './state'
+import { AssistContainer } from './assist/index'
+import { CommContainer } from './comm'
 import { useState } from "react"
 const list = [
-  { name: 'Optimization', component: <Optimization key={'Optimization'} />},
-  { name: 'StateContainer', component: <StateContainer key={'StateContainer'}/> },
-  { name: 'DevContainer', component: <DevContainer key={'DevContainer'}/> }
+  { name: 'Optimization', component: <Optimization key={'Optimization'} /> },
+  { name: 'StateContainer', component: <StateContainer key={'StateContainer'} /> },
+  { name: 'DevContainer', component: <DevContainer key={'DevContainer'} /> },
+  { name: 'Assist', component: <AssistContainer key={'AssistContainer'} /> },
+  { name: 'CommContainer', component: <CommContainer key={'CommContainer'} /> },
 ]
 export function HooksContainer() {
   const [on, setOn] = useState<string>(list[0].name)
