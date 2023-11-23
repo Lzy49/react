@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { UseCallbackContainer } from "./UseCallback"
 import { UseEffectContainer } from "./UseEffect"
+import { UseInsertionEffectContainer } from './UseInsertionEffect'
 const list = [
-  { name: 'useCallback', component: <UseCallbackContainer key={'useCallback'} />},
-  { name: 'UseEffectContainer', component: <UseEffectContainer  key={'UseEffectContainer'}/>}
+  { name: 'useCallback', component: <UseCallbackContainer key={'useCallback'} /> },
+  { name: 'UseEffectContainer', component: <UseEffectContainer key={'UseEffectContainer'} /> },
+  { name: 'UseInsertionEffectContainer', component: <UseInsertionEffectContainer key={'UseInsertionEffectContainer'} /> }
 ]
 export function Optimization() {
   const [on, setOn] = useState<string>(list[0].name)
@@ -16,8 +18,8 @@ export function Optimization() {
     }
   }
   return <div style={{
-    border:'1px solid green',
-    padding:'10px'
+    border: '1px solid green',
+    padding: '10px'
   }}>
     <h1>性能优化</h1>
     <div className="bts">
