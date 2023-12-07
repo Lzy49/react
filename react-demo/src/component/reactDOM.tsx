@@ -1,4 +1,4 @@
-import { LegacyRef, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 export const ReactDOMContainer = () => {
   return <div className='wrap'>

@@ -4,18 +4,17 @@ import './app.scss'
 export const StateContainer = () => {
   return (
     <div className='wrap'>
-      <StateContainer1 />
-      <StateContainer2 />
-      <StateContainer3 />
+      <UseStateExample1 />
+      <UseStateExample2 />
+      <UseStateExample3 />
       <ComputedContainer />
-      <ShareContainer />
       <StateKeepContainer />
     </div>
   )
 }
 
 // useState 常用场景 -- 队列案例 异步修改值 和 同步修改值
-export function StateContainer1() {
+export function UseStateExample1() {
   // 声明一个 state
   const [count, setCount] = useState(0);
   return <div>
@@ -40,7 +39,7 @@ export function StateContainer1() {
 }
 
 // useState 常用场景 -- 修改引用值
-export function StateContainer2() {
+export function UseStateExample2() {
   const [data, setData] = useState({ name: '小电', property: 19 });
   return <div>
     <h1>state useState 引用值</h1>
@@ -55,27 +54,6 @@ export function StateContainer2() {
 
     <button onClick={() => {
       setData({ ...data, property: data.property + 100 })
-    }}>有效 set</button>
-  </div>
-}
-// useState 常用场景 -- 修改引用值
-export function StateContainer3() {
-  const [data, setData] = useImmer({ name: '小电', property: 19 });
-  return <div>
-    <h1>state useImmer 引用值</h1>
-    <p>
-      用户: {data.name}
-      金额: {data.property}
-    </p>
-    <button onClick={() => {
-      // data.property + 100
-      // setData(data)
-    }}>无效 set</button>
-
-    <button onClick={() => {
-      setData((v) => {
-        v.property = v.property + 100
-      })
     }}>有效 set</button>
   </div>
 }
@@ -99,16 +77,16 @@ export function ComputedContainer() {
 }
 
 // 状态共享
-export function ShareContainer() {
+export function UseStateExample3() {
   const [state, setState] = useState(0);
   return <div>
     <h1>组件共享 state</h1>
     <p>{state}</p>
-    <ShareItem state={state} setState={setState} />
-    <ShareItem state={state} setState={setState} />
+    <UseStateExample3Item state={state} setState={setState} />
+    <UseStateExample3Item state={state} setState={setState} />
   </div>
 }
-export function ShareItem({ state, setState }: { state: number, setState: (e: number) => void; }) {
+export function UseStateExample3Item({ state, setState }: { state: number, setState: (e: number) => void; }) {
   return <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => setState(state + 1)}> + 1</button>
 }
 

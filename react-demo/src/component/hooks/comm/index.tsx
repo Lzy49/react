@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { UseImperativeHandleContainer } from "./UseImperativeHandle"
+import { UseRefContainer } from './UseRef'
 const list = [
-  { name: 'UseImperativeHandleContainer', component: <UseImperativeHandleContainer key={'UseImperativeHandleContainer'} /> }
+  { name: 'UseImperativeHandleContainer', component: <UseImperativeHandleContainer key={'UseImperativeHandleContainer'} /> },
+  { name: 'UseRefContainer', component: <UseRefContainer key={'UseRefContainer'} /> }
 ]
 export function CommContainer() {
   const [on, setOn] = useState<string>(list[0].name)

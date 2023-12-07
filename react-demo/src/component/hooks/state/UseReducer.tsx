@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { Fragment, useReducer, useState } from "react";
 
 type actionType = {
   type: 'addProperty',
@@ -14,7 +14,7 @@ type stateType = {
   property: number,
   books: { title: string }[]
 }
-export function ReducerContainer() {
+export function UseReducerContainer() {
   const [state, display] = useReducer((state: stateType, action: actionType) => {
     switch (action.type) {
       case 'addProperty':
@@ -32,11 +32,13 @@ export function ReducerContainer() {
     books: [
       { title: 'JavaScript 权威指南' }
     ]
+  },(state) => {
+    return state
   });
   return <>
     <div>
       <h1>Render 使用</h1>
-      <div>我叫{state.name}, 我今年{state.age}岁, 我有{state.property}元钱, 我有{state.books.map(item => <>《{item.title}》</>)} 这几本书</div>
+      <div>我叫{state.name}, 我今年{state.age}岁, 我有{state.property}元钱, 我有{state.books.map(item => <Fragment key={item.title}>《{item.title}》</Fragment>)} 这几本书</div>
       <button onClick={() => display({
         type: 'addProperty',
         property: 10

@@ -1,20 +1,17 @@
-import { LegacyRef, useRef, useState, forwardRef } from 'react'
-//  ref 值保存 setInterval , 做表秒
-export function RefContainer() {
-  return <div className='wrap'>
+import { forwardRef, useRef, useState } from "react";
+
+export function UseRefContainer() {
+  return <>
     <RefTimerContainer />
     <RefDOMContainer />
-    <RefCallBack />
-  </div>
-
+  </>
 }
+
 // Ref timer 
 function RefTimerContainer() {
   const timer = useRef<number>(0);
   const [time, setTime] = useState(0)
   const [state, setState] = useState(false)
-  timer.current = 111;
-  console.log(timer)
   function open() {
     setTime(0)
     setState(true)
@@ -36,7 +33,7 @@ function RefTimerContainer() {
     }
   </div>
 }
-
+// useRef 绑 DOM
 function RefDOMContainer() {
   const Container = useRef<HTMLDivElement>(null)
   const ChildrenContainer = useRef<HTMLDivElement>(null)
@@ -57,19 +54,8 @@ function RefDOMContainer() {
   </div>
 }
 // Ref DOM Item
-const RefDOMItem = forwardRef((props: any, ItemRef: LegacyRef<HTMLDivElement>) => {
+const RefDOMItem = forwardRef<HTMLDivElement, any>((props, ItemRef) => {
   return <div {...props} ref={ItemRef} style={{ border: '1px solid green', padding: '5px' }} >
     ChildrenContainer
   </div>
 })
-
-// Ref call back
-const RefCallBack = () => {
-  const [value, setValue] = useState(0)
-  return <div>
-    <h1>Ref 通过 callback 获取 DOM</h1>
-    <div ref={(node) => {
-      setValue(node?.offsetHeight || 0)
-    }}>{value}</div>
-  </div>
-}

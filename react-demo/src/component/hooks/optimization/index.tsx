@@ -2,10 +2,12 @@ import { useState } from "react"
 import { UseCallbackContainer } from "./UseCallback"
 import { UseEffectContainer } from "./UseEffect"
 import { UseInsertionEffectContainer } from './UseInsertionEffect'
+import { UseTransitionContainer } from './UseTransition'
 const list = [
   { name: 'useCallback', component: <UseCallbackContainer key={'useCallback'} /> },
   { name: 'UseEffectContainer', component: <UseEffectContainer key={'UseEffectContainer'} /> },
-  { name: 'UseInsertionEffectContainer', component: <UseInsertionEffectContainer key={'UseInsertionEffectContainer'} /> }
+  { name: 'UseInsertionEffectContainer', component: <UseInsertionEffectContainer key={'UseInsertionEffectContainer'} /> },
+  { name: 'UseTransitionContainer', component: <UseTransitionContainer key={'UseTransitionContainer'} /> }
 ]
 export function Optimization() {
   const [on, setOn] = useState<string>(list[0].name)

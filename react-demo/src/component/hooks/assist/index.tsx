@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { UseId } from "./UseId"
+import { UseSyncExternalStoreContainer } from './UseSyncExternalStore'
 const list = [
-  { name: 'UseId', component: <UseId key={'UseId'} /> }
+  { name: 'UseId', component: <UseId key={'UseId'} /> },
+  { name: 'UseSyncExternalStoreContainer', component: <UseSyncExternalStoreContainer key={'UseSyncExternalStoreContainer'} /> }
 ]
 export function AssistContainer() {
   const [on, setOn] = useState<string>(list[0].name)
